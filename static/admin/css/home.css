@@ -30,7 +30,7 @@
   table td{
     font-size: 15px;
     font-weight: bold;
-    color: whitesmoke;
+    color: rgb(29, 29, 29);
   }
 
 .container{
@@ -55,7 +55,7 @@
   margin: 3px 10px 20px 260px;
   font-size: xx-large;
   font-weight: bolder;
-  color: whitesmoke;
+  color: rgb(58, 58, 58);
 }
 
 .link{

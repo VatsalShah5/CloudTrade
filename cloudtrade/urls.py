@@ -11,6 +11,6 @@ urlpatterns = [
     path('contact_us/', views.contact_us, name='contact_us'),
     path('stockpicker/', views.stockpicker, name='stockpicker'),
     path('stocktracker', views.stocktracker, name='stocktracker'),
-    path('list_of_stock/', views.list, name='ticker_list'),
+    path('list_of_stock/', views.ticker, name='ticker_list'),
     path('about_us/', views.about_us, name='about_us'),
 ]

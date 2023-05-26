@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="{% static 'admin/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/navbar2.css' %}">
     <link rel="stylesheet" href="{% static 'admin/css/stockpicker.css' %}">
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -33,35 +33,35 @@
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="{%url 'home'%}">
-                            <i class='bx bx-home-alt icon' ></i>
+                            <i class='bx bx-home-alt bx-burst icon' ></i>
                             <span class="text nav-text">Home</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{%url 'stockpicker'%}">
-                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                            <i class='bx bx-bar-chart bx-tada icon' ></i>
                             <span class="text nav-text">Stock Predict</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{% url 'ticker_list' %}">
-                            <i class='bx bx-list-ul icon'></i>
+                            <i class='bx bx-list-ul bx-tada icon'></i>
                             <span class="text nav-text">List of Stock</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{% url 'about_us' %}">
-                            <i class='bx bx-group icon' ></i>
+                            <i class='bx bx-group bx-fade-down icon' ></i>
                             <span class="text nav-text">About Us</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{% url 'contact_us' %}">
-                            <i class='bx bxs-contact icon' ></i>
+                            <i class='bx bxs-contact bx-fade-up icon' ></i>
                             <span class="text nav-text">Contact Us</span>
                         </a>
                     </li>
@@ -71,7 +71,7 @@
             <div class="bottom-content">
                 <li class="">
                     <a href="{%url 'index' %}">
-                        <i class='bx bx-log-out icon' ></i>
+                        <i class='bx bx-log-out bx-fade-left icon' ></i>
                         <span class="text nav-text">Logout</span>
                     </a>
                 </li>
