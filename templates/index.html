@@ -1,0 +1,16 @@
+{% load static %}
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Cloud Trade </title>
+    <link rel="stylesheet" href="{% static 'admin/css/index.css' %}">
+  </head>
+  <body>
+    <img src="{% static 'admin/img/logo.png' %}" alt="logo">
+
+
+    <h1>Welcome to Cloud Trade</h1>
+    <a href="{% url 'signup' %}" class="btnone">Sign-Up</a>
+    <a href="{% url 'signin' %}" class="button2">Sign-In</a>
+  </body>
+</html>

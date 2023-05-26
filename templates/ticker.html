@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!----======== CSS ======== -->
+        <link rel="stylesheet" href="{% static 'admin/css/navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'admin/css/ticker.css' %}">
+    <!----===== Boxicons CSS ===== -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'admin/img/logo.png' %}">
+    <title>List of Stocks</title>
+
+    <body>
+        <nav class="sidebar close">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <img src="{% static 'admin/img/logo.png' %}" alt="logo">
+                    </span>
+    
+                    <div class="text logo-text">
+                        <span class="name">CloudTrade</span>
+                        <span class="profession">Username</span>
+                    </div>
+                </div>
+            </header>
+    
+            <div class="menu-bar">
+                <div class="menu">    
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="{%url 'home'%}">
+                                <i class='bx bx-home-alt bx-burst icon' ></i>
+                                <span class="text nav-text">Home</span>
+                            </a>
+                        </li>
+    
+                        <li class="nav-link">
+                            <a href="{%url 'stockpicker'%}">
+                                <i class='bx bx-chart bx-tada icon'  ></i>
+                                <span class="text nav-text">Stock Predict</span>
+                            </a>
+                        </li>
+    
+                        <li class="nav-link">
+                            <a href="{% url 'ticker_list' %}">
+                                <i class='bx bx-list-ul bx-tada icon' ></i>
+                                <span class="text nav-text">List of Stock</span>
+                            </a>
+                        </li>
+    
+                        <li class="nav-link">
+                            <a href="{% url 'about_us' %}">
+                                <i class='bx bx-group bx-fade-down icon' ></i>
+                                <span class="text nav-text">About Us</span>
+                            </a>
+                        </li>
+    
+                        <li class="nav-link">
+                            <a href="{% url 'contact_us' %}">
+                                <i class='bx bxs-contact bx-fade-up icon' ></i>
+                                <span class="text nav-text">Contact Us</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="bottom-content">
+                    <li class="">
+                        <a href="{%url 'index' %}">
+                            <i class='bx bx-log-out bx-fade-left icon' ></i>
+                            <span class="text nav-text">Logout</span>
+                        </a>
+                    </li>              
+                </div>
+            </div>
+        </nav>
+        <section class="home">
+            <div class="text2">List of All the Stock present in the Stock market</div>
+          </section>
+          <br>
+        <!-- Main Content Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-white">
+                                    <th scope="col">Ticker Symbol</th>
+                                    <th scope="col">Ticker Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if ticker_list %}
+                                {% for i in ticker_list %}
+                                <tr>
+                                    <td>{{i.Symbol}}</td>
+                                    <td>{{i.Name}}</td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Ends -->
+        <script>
+            const body = document.querySelector('body'),
+          sidebar = body.querySelector('nav'),
+          toggle = body.querySelector(".toggle"),
+          searchBtn = body.querySelector(".search-box"),
+          modeSwitch = body.querySelector(".toggle-switch"),
+          modeText = body.querySelector(".mode-text");
+    
+    
+    toggle.addEventListener("click" , () =>{
+        sidebar.classList.toggle("close");
+    })
+    
+    searchBtn.addEventListener("click" , () =>{
+        sidebar.classList.remove("close");
+    })
+    
+    modeSwitch.addEventListener("click" , () =>{
+        body.classList.toggle("dark");
+        
+        if(body.classList.contains("dark")){
+            modeText.innerText = "Light mode";
+        }else{
+            modeText.innerText = "Dark mode";
+            
+        }
+    });
+        </script>
+        
+    </body>
+</html>

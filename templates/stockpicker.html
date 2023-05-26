@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<title>stockpicker</title>
+<html>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="{% static 'admin/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/stockpicker.css' %}">
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'admin/img/logo.png' %}">
+    <title>Stock Picker</title>
+  <body>
+        <nav class="sidebar close">
+          <header>
+            <div class="image-text">
+              <span class="image">
+                <img src="{% static 'admin/img/logo.png' %}" alt="logo">
+              </span>
+
+              <div class="text logo-text">
+                  <span class="name">CloudTrade</span>
+                  <span class="profession">{{username}}</span>
+              </div>
+            </div>
+          </header>
+
+          <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="{%url 'home'%}">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{%url 'stockpicker'%}">
+                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                            <span class="text nav-text">Stock Predict</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{% url 'ticker_list' %}">
+                            <i class='bx bx-list-ul icon'></i>
+                            <span class="text nav-text">List of Stock</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{% url 'about_us' %}">
+                            <i class='bx bx-group icon' ></i>
+                            <span class="text nav-text">About Us</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{% url 'contact_us' %}">
+                            <i class='bx bxs-contact icon' ></i>
+                            <span class="text nav-text">Contact Us</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="{%url 'index' %}">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            </div>
+          </div>
+        </nav>
+      <section class="home">
+        <div class="text2">Pick The Stock You Want!!</div>
+      </section>   
+      <br>
+      <form action="{% url 'stocktracker' %}" method="POST">
+        {% csrf_token %}
+        <h1><center>Predict</center></h1>
+        <label for="stockname">Stock Name:</label>
+        <input type="text" class="form-control" id="tickerinp" placeholder="Ticker Name" name="ticker" autocomplete="on" required>
+      
+        <label for="predictforfuture">Enter Number of Days</label>
+        <input type="Number" class="form-control" id="days" placeholder="Number of days" name="days" autocomplete="on" required>
+
+        <a href="{% url 'ticker_list' %}">List of Stocks</a></p>
+
+        <button type="submit">Submit</button>
+      </form>
+    <script type="text/javascript" >
+      const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+      toggle.addEventListener("click" , () =>{
+      sidebar.classList.toggle("close");
+      })
+
+      searchBtn.addEventListener("click" , () =>{
+      sidebar.classList.remove("close");
+      })
+
+      modeSwitch.addEventListener("click" , () =>{
+      body.classList.toggle("dark");
+      
+        if(body.classList.contains("dark")){
+          modeText.innerText = "Light mode";
+        }else{
+          modeText.innerText = "Dark mode";
+          
+          }
+        });
+    </script>
+  </body>
+</html>

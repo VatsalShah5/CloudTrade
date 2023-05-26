@@ -1,0 +1,52 @@
+form {
+  width: 1059px;
+  margin: 0 auto;
+  margin-top:100px;
+  padding: 20px;
+  border: 3px solid #ff5d5d;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ff5d5d;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  input[type="text"]:hover{
+    background-color: #ff5d5d;
+  }
+  button[type="submit"] {
+    width: 100%;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 18px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #ff5d5d;
+  }
+  label[for="stockname"], label[for="predictforfuture"]{
+      font-size: 15px;
+  }
+  .text2{
+    color: whitesmoke;
+    margin: 3px 10px 20px 260px;
+    font-size: 30px;
+    font-weight: bolder;
+  }
+  .stockname{
+    font-weight: bold;
+  }

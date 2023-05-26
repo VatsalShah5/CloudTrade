@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="{% static 'admin/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/home.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'admin/img/logo.png' %}">
+    <title>Home</title>
+
+    <body>
+        <nav class="sidebar close">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <img src="{% static 'admin/img/logo.png' %}" alt="logo">
+                    </span>
+    
+                    <div class="text logo-text">
+                        <span class="name">Hey,</span>
+                        <span class="profession">{{username}}</span>
+                    </div>
+                </div>
+            </header>
+    
+            <div class="menu-bar">
+                <div class="menu">    
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-home-alt bx-burst icon' ></i>
+                                <span class="text nav-text">Home</span>
+                            </a>
+                        </li>
+    
+                        <li class="nav-link">
+                            <a href="{%url 'stockpicker'%}">
+                                <i class='bx bx-chart bx-tada icon'  ></i>
+                                <span class="text nav-text">Stock Predict</span>
+                            </a>
+                        </li>
+    
+                        <li class="nav-link">
+                            <a href="{% url 'ticker_list' %}">
+                                <i class='bx bx-list-ul bx-tada icon' ></i>
+                                <span class="text nav-text">List of Stock</span>
+                            </a>
+                        </li>
+    
+                        <li class="nav-link">
+                            <a href="{% url 'about_us' %}">
+                                <i class='bx bx-group bx-fade-down icon' ></i>
+                                <span class="text nav-text">About Us</span>
+                            </a>
+                        </li>
+    
+                        <li class="nav-link">
+                            <a href="{% url 'contact_us' %}">
+                                <i class='bx bxs-contact bx-fade-up icon' ></i>
+                                <span class="text nav-text">Contact Us</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="bottom-content">
+                    <li class="">
+                        <a href="{%url 'index' %}">
+                            <i class='bx bx-log-out bx-fade-left icon' ></i>
+                            <span class="text nav-text">Logout</span>
+                        </a>
+                    </li>              
+                </div>
+            </div>
+        </nav>
+        <section class="home">
+            <div class="text">Welcome To Cloud Trade : ) </div>
+        </section>
+        <br>
+        <div class="container pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-12 col-xl-12">
+                    <div class="bg-secondary text-center rounded p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <h6 class="mb-2">Active Stocks</h6>
+                        </div>
+                        {% block Left_Plot %}
+
+                            {% autoescape off %}
+                                {{ plot_div_left }}
+                            {% endautoescape %}
+
+                        {% endblock Left_Plot %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="bg-secondary text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h5 class="mb-0">Recent Stocks</h5>
+                </div>
+                <div class="table-container">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Ticker</th>
+                          <th>Open</th>
+                          <th>High</th>
+                          <th>Low</th>
+                          <th>Close</th>
+                          <th>Adj. Close</th>
+                          <th>Volume</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% if recent_stocks %}
+                          {% for i in recent_stocks %}
+                            <tr>
+                              <td>{{i.Ticker}}</td>
+                              <td>{{i.Open}}</td>
+                              <td>{{i.High}}</td>
+                              <td>{{i.Low}}</td>
+                              <td>{{i.Close}}</td>
+                              <td>{{i.Adj_Close}}</td>
+                              <td>{{i.Volume}}</td>
+                            </tr>
+                          {% endfor %}
+                        {% endif %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const body = document.querySelector('body'),
+          sidebar = body.querySelector('nav'),
+          toggle = body.querySelector(".toggle"),
+          searchBtn = body.querySelector(".search-box"),
+          modeSwitch = body.querySelector(".toggle-switch"),
+          modeText = body.querySelector(".mode-text");
+    
+    
+         toggle.addEventListener("click" , () =>{
+         sidebar.classList.toggle("close");
+         })
+    
+            searchBtn.addEventListener("click" , () =>{
+            sidebar.classList.remove("close");
+             })
+    
+            modeSwitch.addEventListener("click" , () =>{
+            body.classList.toggle("dark");
+        
+            if(body.classList.contains("dark")){
+                modeText.innerText = "Light mode";
+            }else{
+                modeText.innerText = "Dark mode";
+            
+            }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+html, body {
+    overflow-x: hidden;
+  }
+  
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.section{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(40,40,40);
+
+}
+
+.container{
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: auto;
+    padding-top: 100px;
+}
+
+.content-section{
+    float: none;
+    width: 55%;   
+}
+
+.image-section{
+    float: right;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-section img{
+    width: 100%;
+    height: auto;
+}
+.content-section, .h3{
+    color: white;
+    margin-top: 20px;
+}
+.content-section .title{
+    text-transform: uppercase;
+    font-size: 28px;
+}
+
+.content-section .content p{
+    margin-top: 10px;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.content-section .content .button a{
+    padding: 2px ;
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+}
+
+.content-section .content .button a:hover{
+    color: greenyellow;
+}
+
+.content-section .social{
+    margin-top: 2px;
+}
+
+.content-section .social i{
+    color: whitesmoke;
+    font-size: 40px;
+}
+
+.content-section .social i:hover{
+    color: greenyellow;
+}
+.home {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+  
+.home a {
+    display: block;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border: 3px solid rgb(54, 255, 80);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+  
+.home a:hover {
+    background-color: rgb(49, 255, 22);
+    border: 3px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+}
+@media screen and (max-width: 1024px),(max-width: 768px),(max-width: 1280px),(max-width: 650px){
+    .container{
+        width: 80%;
+        display: block;
+        margin: auto;
+        padding-top: 5px;
+    }
+    .content-section{
+        float: none;
+        width: 100%; 
+        display: block;
+        margin: auto;  
+    }
+    .image-section{
+        float: none;
+        width: 100%;
+    }
+    .image-section img{
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+    .content-section .title{
+        text-align: center;
+        font-size: 19px;
+
+    }
+    .content-section .content .button{
+        text-align: center;
+    }
+    .content-section .content .button a{
+        padding: 9px 30px;
+    }
+    .content-section .social {
+        text-align: center;
+    }
+    .content-section .social i{
+        text-align: center;
+    }
+}

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Us</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'admin/css/about_us.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="section">
+        <div class="container">
+            <div class="content-section">
+                <div class="title">
+                  <h1>About Us</h1>
+                </div>
+                <div class="home">
+                <a href="{%url 'home'%}">Home</a>
+                </div>
+                <div class="content">
+                  <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Nostrum saepe commodi,asdasasa akjsjkaskas asdasd asdadlasdasd
+                  </p>
+                  <div class="button">
+                    <a href="">Read More</a>
+                  </div>
+                </div>
+                <div class="social">
+                    <a href=""><i class='bx bxl-facebook bx-tada'></i></a>
+                    <a href=""><i class='bx bxl-twitter bx-tada'></i></a>
+                    <a href=""><i class='bx bxl-instagram bx-tada'></i></a>
+                </div>
+            </div>
+            <div class="image-section"></div>
+            <img src="{% static 'admin/img/quote.jfif' %}" alt="image">
+        </div>
+    </div>
+  </body>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</html>
